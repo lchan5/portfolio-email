@@ -237,7 +237,7 @@ form label.error {
     line-height:12px;
     color:#c0392b;
 }
-form input[type="text"] {
+form input[type="text"], form input[type="email"] {
     height:30px;
 }
 form input[type="submit"] {
@@ -250,7 +250,7 @@ form input[type="submit"] {
   	-moz-border-radius: 5px;
   	border-radius: 5px;
 }
-form input[type="text"], form textarea {
+form input[type="text"], form input[type="email"], form textarea {
 	margin-top:10px;
     margin-bottom:1.25em;
     font-family:"Inconsolata", sans-serif;
@@ -269,7 +269,12 @@ form input[type="text"], form textarea {
   	width:300px;
   	padding-left:10px;
 }
-form input[type="text"]:focus, form textarea:focus {
+
+form textarea {
+	padding-top:10px;
+}
+
+form input[type="text"]:focus, form input[type="email"]:focus, form textarea:focus {
     border-color:#191919;
     box-shadow:none;
     -moz-box-shadow:none;
@@ -278,10 +283,10 @@ form input[type="text"]:focus, form textarea:focus {
   	-moz-border-radius: 5px;
   	border-radius: 5px;
 }
-form input[type="text"][disabled], form textarea[disabled] {
+form input[type="text"][disabled], form input[type="email"][disabled], form textarea[disabled] {
     background:#cccccc
 }
-form input[type="text"].error, form textarea.error {
+form input[type="text"].error, form input[type="email"].error, form textarea.error {
     background:#e6e6e6;
     border-color:#c0392b;
 }
@@ -491,13 +496,14 @@ fieldset {
 }
 
 form input[type="submit"] {
-    width:295px;
+    width:290px;
     height:40px;
 }
     
-form input[type="text"], form textarea {
+form input[type="text"], form input[type="email"], form textarea {
 	width:280px;
 }
+
 
 
 }
