@@ -46,13 +46,13 @@
       		  dataType: "json",
               success: function() {
        		 	  $("#submit-success").fadeIn();
-        		  $("#contact-form").fadeOut();
+        		  $("#contactform").fadeOut();
       		  },
       		  error: function() {
         		  $("#submit-errors").fadeIn();        
       		  }
     	    });
-    	    return false;
+    	    
   	    }
         
         
