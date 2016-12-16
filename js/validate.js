@@ -40,22 +40,16 @@
         
         submitHandler: function(form) {
     		$.ajax({
-                url: "/formspree.io/lchan5@gmail.com",
+                url: "//formspree.io/lchan5@gmail.com",
                 method: "POST",
                 data: $(form).serialize(),
                 dataType: "json",
                 success: function() {
-                    $('#contact :input').attr('disabled', 'disabled');
-                    $('#contact').fadeTo( "slow", 0.15, function() {
-                        $(this).find(':input').attr('disabled', 'disabled');
-                        $(this).find('label').css('cursor','default');
-                        $('#success').fadeIn();
-                    });
+                    $("#submit-success").fadeIn();
+                    $("#contactform").fadeOut();
                 },
                 error: function() {
-                    $('#contact').fadeTo( "slow", 0.15, function() {
-                        $('#error').fadeIn();
-                    });
+                    $("#submit-errors").fadeIn();
                 }
             });
     	    
