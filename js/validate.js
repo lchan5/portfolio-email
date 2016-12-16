@@ -39,10 +39,11 @@
         },
         
         submitHandler: function(form) {
-    		$(form).ajaxSubmit({
-                type:"POST",
+    		$.ajax({
+                url: "/formspree.io/lchan5@gmail.com",
+                method: "POST",
                 data: $(form).serialize(),
-                url:"../process.php",
+                dataType: "json",
                 success: function() {
                     $('#contact :input').attr('disabled', 'disabled');
                     $('#contact').fadeTo( "slow", 0.15, function() {
