@@ -131,40 +131,30 @@
 				Feel free to get in touch!</p>
 				<p><a href="skype:lesleychan5?chat"><img src="images/skype.png"></a>&nbsp;&nbsp;<a href="http://www.linkedin.com/in/lchan5/" target="_blank"><img src="images/linkedin.png"></a>&nbsp;&nbsp;<a href="mailto:lchan5@gmail.com" target="_blank"><img src="images/gmail.png"></a></p>
 			
-				<!-- BEGIN -->
 			   	<center>
-				
-				<!-- Hidden message to show if contact is successful. -->
-				<div id="submit-success" class="collapse">
-  				Message received! I'll be in touch.
-				</div>
-
-				<!-- Hidden message to show if user encounters errors. -->
-				<div id="submit-errors" class="collapse">
-  				It looks like there was an error submitting the form.<br>Please try refreshing and submitting the form again.<br><br>
-				</div>
-				
-				<!-- Formspree contact form -->
-				<form id="contact-form" class="form" action="/">
-					<div class="form-group">
+				<form id="contactform" method="post">
+					<fieldset>
 						<label for="name" id="name">Name<span class="required">*</span></label>
-						<input class="form-control" type="text" name="name" required />
-					</div>
-					<div class="form-group">
+						<input type="text" name="name" required />
+					</fieldset>
+					<fieldset>
 						<label for="email" id="email">Email<span class="required">*</span></label>
-						<input class="form-control" type="email" name="_replyto" required />
-					</div>
-					<div class="form-group">
+						<input type="email" name="_replyto" required />
+					</fieldset>
+					<fieldset>
 						<label for="Message" id="message">Message<span class="required">*</span></label>
-						<textarea class="form-control" name="message" cols="31" rows="5" required></textarea>
-					</div>
+						<textarea name="message" cols="31" rows="5" required></textarea>
+					</fieldset>
 					<input class="hidden" type="text" name="_gotcha" style="display:none;" />
 					<input class="hidden" type="hidden" name="_subject" value="Message via lchan5.com" />
 					
 					<input id="submit" type="submit" name="submit" value="Help me with my email project" />  
 				</form>
 				</center>
-				<!-- // END -->
+				<script>
+					var contactform = document.getElementById('contactform');
+					contactform.setAttribute('action', '//formspree.io/' + 'lchan5' + '@' + 'gmail' + '.' + 'com');
+				</script>
 			  
 			</div>
 		</div>
@@ -180,5 +170,6 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/validate.js"></script>
+	<!-- <script type="text/javascript" src="js/scripts.min.js"></script> -->
 </body>
 </html>
