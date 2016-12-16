@@ -49,7 +49,7 @@ $(function() {
       		  method: "POST",
       		  data: $(form).serialize(),
       		  dataType: "json",
-              success: function(data) {
+              success: function() {
        		 	  $("#submit-success").fadeIn();
         		  $("#contact-form").fadeOut();
       		  },
