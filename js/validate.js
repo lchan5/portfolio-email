@@ -1,4 +1,4 @@
-
+// validate contact form
     $('#contact').validate({
         rules: {
             name: {
@@ -39,23 +39,24 @@
         },
         
         submitHandler: function(form) {
-    		$.ajax({
-      		  url: "//formspree.io/lchan5@gmail.com", 
-      		  method: "POST",
-      		  data: {
-                 name: $(form).find("input[name='name']").val(),
-                _replyto: $(form).find("input[name='_replyto']").val(),
-                message: $(form).find("textarea[name='message']").val() 
-              },
-      		  dataType: "json",
-              success: function() {
-       		 	  $("#submit-success").fadeIn();
-        		  $("#contactform").fadeOut();
-      		  },
-      		  error: function() {
-        		  $("#submit-errors").fadeIn();        
-      		  }
-    	    });
+    		$(form).ajaxSubmit({
+                type:"POST",
+                data: $(form).serialize(),
+                url:"../process.php",
+                success: function() {
+                    $('#contact :input').attr('disabled', 'disabled');
+                    $('#contact').fadeTo( "slow", 0.15, function() {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find('label').css('cursor','default');
+                        $('#success').fadeIn();
+                    });
+                },
+                error: function() {
+                    $('#contact').fadeTo( "slow", 0.15, function() {
+                        $('#error').fadeIn();
+                    });
+                }
+            });
     	    
   	    }
         
