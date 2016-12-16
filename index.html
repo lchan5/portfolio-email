@@ -143,6 +143,14 @@
   				It looks like there was an error submitting the form.<br>Please try refreshing and submitting the form again.<br><br>
 				</div>	
 					
+				<script>
+				$(document).ready(function() {
+    					var $sub = $("#_subject");
+    					$("#email").on("input", function() {
+        					$sub.val("Lchan5.com Contact Form (" + $(this).val() + ")");
+   					 });
+				});
+				</script>
 					
 				<form id="contactform" action="//formspree.io/lchan5@gmail.com" method="POST">
 					<fieldset>
