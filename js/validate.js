@@ -42,25 +42,28 @@ $(function() {
             }
             */
         },
+        
         submitHandler: function(form) {
-            $(form).ajaxSubmit({
-                type:"POST",
-                data: $(form).serialize(),
-                url:"../process.php",
-                success: function() {
-                    $('#contact :input').attr('disabled', 'disabled');
-                    $('#contact').fadeTo( "slow", 0.15, function() {
-                        $(this).find(':input').attr('disabled', 'disabled');
-                        $(this).find('label').css('cursor','default');
-                        $('#success').fadeIn();
-                    });
-                },
-                error: function() {
-                    $('#contact').fadeTo( "slow", 0.15, function() {
-                        $('#error').fadeIn();
-                    });
-                }
-            });
-        }
+    		$.ajax({
+      		  url: "//formspree.io/lchan5@gmail.com", 
+      		  method: "POST",
+      		  data: $(form).serialize(),
+      		  dataType: "json",
+              success: function(data) {
+       		 	  $("#submit-success").fadeIn();
+        		  $("#contact-form").fadeOut();
+      		  },
+      		  error: function() {
+        		  $("#submit-errors").fadeIn();        
+      		  }
+    	    });
+    	    return false;
+  	    }
+        
+        
+        
+        
+        
+        
     });
 });
