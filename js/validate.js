@@ -1,29 +1,18 @@
-// validate contact form
-    $('#contact').validate({
-
-        submitHandler: function(form) {
-    		$.ajax({
-                url: "//formspree.io/lchan5@gmail.com",
-                method: "POST",
-                data: $(form).serialize(),
-                dataType: "json",
-                success: function() {
-                    $('#contactform :input').attr('disabled', 'disabled');
-                    $('#contactform').fadeTo( "slow", 0.15, function() {
-                        $(this).find(':input').attr('disabled', 'disabled');
-                        $(this).find('label').css('cursor','default');
-                        $('#submit-success').fadeIn();
-                    });
-                },
-                error: function() {
-                    $('#contactform').fadeTo( "slow", 0.15, function() {
-                        $('#submit-errors').fadeIn();
-                    });
-                }
-            });
-    	    
-  	    }
-          
-        
-        
+  $(document).ready(function(){
+    $("#contactform").submit(function(event){
+      event.preventDefault();
+      $.ajax({
+        url: "https://www.enformed.io/5v9226ze",
+        method: "post",
+        dataType: "json",
+        accepts: "application/json",
+        data: $("#contactform").serialize(),
+        success: function(){
+          console.log("Your form was successfully received!");
+        },
+        error: function(){
+          console.log("Failure. Try again.");
+        }
+      });
     });
+  });
