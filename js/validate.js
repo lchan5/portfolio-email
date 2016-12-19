@@ -8,6 +8,7 @@
         accepts: "application/json",
         data: $("#contactform").serialize(),
         success: function(){
+          alert("success works");
           console.log("Your form was successfully received!");
         },
         error: function(){
