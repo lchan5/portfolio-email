@@ -131,41 +131,52 @@
 				Feel free to get in touch!</p>
 				<p><a href="skype:lesleychan5?chat"><img src="images/skype.png"></a>&nbsp;&nbsp;<a href="http://www.linkedin.com/in/lchan5/" target="_blank"><img src="images/linkedin.png"></a>&nbsp;&nbsp;<a href="mailto:lchan5@gmail.com" target="_blank"><img src="images/gmail.png"></a></p>
 			
+<script>
+  $(document).ready(function(){
+    $("#contactform").submit(function(event){
+      event.preventDefault();
+      $.ajax({
+        url: "https://www.enformed.io/5v9226ze",
+        method: "post",
+        dataType: "json",
+        accepts: "application/json",
+        data: $("#thisForm").serialize(),
+        success: function(){
+          console.log("Your form was successfully received!");
+        },
+        error: function(){
+          console.log("Failure. Try again.");
+        }
+      });
+    });
+  });
+</script>
+				
 			   	<center>
-					
-				<!-- Hidden message to show if contact is successful. -->
-				<div id="submit-success" style="display:none;">
-  				Message received! I'll be in touch.
-				</div>
+				<form id="contactform">
 
-				<!-- Hidden message to show if user encounters errors. -->
-				<div id="submit-errors" style="display:none;">
-  				It looks like there was an error submitting the form.<br>Please try refreshing and submitting the form again.<br><br>
-				</div>	
-					
-				<form id="contactform" method="POST">
+					<input type="hidden" name="*lchan5" value="enformedForm" />
+					<input type="hidden" name="*honeypot" />
+					<input type="hidden" name="*subject" value="Email via lchan5.com" />
+	
 					<fieldset>
 						<label for="name" id="name">Name<span class="required">*</span></label>
 						<input type="text" name="name" required />
 					</fieldset>
+	
 					<fieldset>
 						<label for="email" id="email">Email<span class="required">*</span></label>
 						<input type="email" name="_replyto" required />
 					</fieldset>
+	
 					<fieldset>
 						<label for="Message" id="message">Message<span class="required">*</span></label>
-						<textarea name="message" cols="31" rows="5" required></textarea>
+						<textarea name="message" cols="31" rows="5" placeholder="Your message here..." required></textarea>
 					</fieldset>
-					<input type="text" name="_gotcha" style="display:none;" />
-					<input type="hidden" name="_subject" value="Message via lchan5.com" />
-
+	
 					<input id="submit" type="submit" name="submit" value="Help me with my email project" />  
-				</form>
-				<script>
-					var contactform = document.getElementById('contactform');
-					contactform.setAttribute('action', '//formspree.io/' + 'lchan5' + '@' + 'gmail' + '.' + 'com');
-				</script>	
-					
+
+				</form>	
 				</center>
 			 
 			</div>
@@ -179,7 +190,7 @@
 	<!-- Magnific Popup core JS file -->
 	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
 	<!-- Form Validation -->
-	<script type="text/javascript" src="js/validate.js"></script>
+	
 	
 	
 </body>
